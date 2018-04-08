@@ -1,1 +1,7 @@
 __pycache__/
+
+# used for build
+build/
+dist/
+telo.egg-info/
+venv/
