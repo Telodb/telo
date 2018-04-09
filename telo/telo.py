@@ -15,8 +15,11 @@ def main():
 @click.option('--path', default='./', help='Database path')
 def init(name, path):
     '''Create initial database'''
-    newDB = initDB.init(name, path)
-    newDB.init(name, path)
+    newDB = initDB.init(
+            name=name,
+            path=path,
+        )
+    newDB.init()
 
 def echo(msg, priority=4):
     hues.log(msg)
