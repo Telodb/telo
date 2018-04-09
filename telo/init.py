@@ -1,3 +1,7 @@
+"""
+Initialize database
+"""
+
 import os
 import configparser
 
