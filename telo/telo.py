@@ -32,7 +32,3 @@ def init(name, path):
 def config(place, key, value):
     '''Set or get config'''
     confDB.put(place, key, value)
-
-
-def echo(msg, priority=4):
-    hues.log(msg)

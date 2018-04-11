@@ -19,6 +19,7 @@ class init():
         abspath = os.path.abspath(self.path) + '/.telo'
         try:
             os.mkdir(abspath)
+            os.mkdir(abspath + '/triggers')
             log('Initialize empty telo database named {} in {} '
                 .format(self.name, abspath)
             )
