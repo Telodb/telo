@@ -1,7 +1,7 @@
 import hues
 
 
-def log(msg, logType='l', priority=4, verbosity=1):
+def log(msg, logType='l', priority=1, verbosity=4):
     if priority <= verbosity:
         if logType == 'l':
             hues.log(msg)

@@ -6,6 +6,7 @@ import os
 import configparser
 
 from telo.core.echo import log
+from telo.conf import *
 
 
 class init():
@@ -16,10 +17,22 @@ class init():
 
     def init(self):
         abspath = os.path.abspath(self.path) + '/.telo'
-        log('Initialize empty telo database named {} in {} '.format(self.name, abspath))
-        os.mkdir(abspath)
+        try:
+            os.mkdir(abspath)
+            log('Initialize empty telo database named {} in {} '
+                .format(self.name, abspath)
+            )
+        except FileExistsError:
+            log('Reinitialize empty telo database named {} in {} '
+                .format(self.name, abspath)
+            )
+
         confFile = os.path.join(abspath, 'config')
-        create_config_file = open(confFile, 'w')
-        create_config_file.close()
-        parser = configparser.ConfigParser()
-        parser.read(confFile)
+        localConfig = open(confFile, 'w')
+        globalConfig = open(confPath('global'))
+        localConfig.write(globalConfig.read())
+        globalConfig.close()
+        localConfig.close()
+
+        put('local', 'telo.name', self.name)
+        put('local', 'telo.path', abspath)
