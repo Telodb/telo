@@ -29,7 +29,7 @@ def init(name, path):
 @click.argument('value', nargs=1)
 def config(place, key, value):
     '''Set or get config'''
-    confDB.set(place, key, values)
+    confDB.put(place, key, value)
 
 
 def echo(msg, priority=4):
