@@ -1,5 +1,6 @@
 import hues
 
+
 def log(msg, logType='l', priority=4, verbosity=1):
     if priority <= verbosity:
         if logType == 'l':
