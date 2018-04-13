@@ -1,7 +1,7 @@
 import configparser
 import os
 
-from telo.core.echo import log
+from telo.util.echo import log
 
 pwd = os.getcwd()
 home = os.path.expanduser('~')

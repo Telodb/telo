@@ -5,7 +5,7 @@ Initialize database
 import os
 import configparser
 
-from telo.core.echo import log
+from telo.util.echo import log
 from telo.conf import *
 
 
