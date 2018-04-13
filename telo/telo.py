@@ -4,6 +4,7 @@ import os
 
 from telo import init as initDB
 from telo import conf as confDB
+from telo.util.path import workingPath as wp
 
 
 @click.group()
@@ -13,7 +14,7 @@ def main():
 
 @main.command()
 @click.option('--name', prompt=True, help='Database name')
-@click.option('--path', default='./', help='Database path')
+@click.option('--path', default=wp(), help='Database path')
 def init(name, path):
     '''Create initial database'''
     newDB = initDB.init(name=name, path=path)
